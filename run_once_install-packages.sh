@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 if hash pacman 2>/dev/null ; then
-    sudo pacman -S thefuck
+    sudo pacman -Sy thefuck exa fzf zsh tmux
 elif hash apt-get 2>/dev/null ; then
-    sudo apt install thefuck
+    sudo apt install -y thefuck exa fzf zsh tmux
 fi
 
-curl -L git.io/antigen > ~/antigen.zsh
+sudo chsh -s $(which zsh) "$USER"

@@ -2,3 +2,7 @@
     type = "file"
     url = "https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf"
     refreshPeriod = "168h"
+["antigen.zsh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh"
+    refreshPeriod = "168h"
