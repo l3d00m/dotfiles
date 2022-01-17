@@ -1,0 +1,4 @@
+alias sudo='sudo -v; sudo '
+alias y='yay'
+#DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+")
+alias make_recorder='DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+") && pactl load-module module-combine-sink sink_name=record-n-pipe slaves=$DEFAULT_OUTPUT sink_properties=device.description="Record-and-Pipe"'

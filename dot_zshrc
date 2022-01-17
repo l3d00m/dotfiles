@@ -9,10 +9,12 @@ antigen bundle pip
 antigen bundle fzf
 antigen bundle tmux
 antigen bundle yarn
+antigen bundle thefuck
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+antigen bundle "MichaelAquilina/zsh-you-should-use"
 
 antigen theme agnoster
 
@@ -23,14 +25,11 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 antigen apply
 
+source ~/.aliases
 
 # My stuff
 export LD_LIBRARY_PATH=/usr/local/cuda/lib
 export PATH=$PATH:/usr/local/cuda/bin
-alias sudo='sudo -v; sudo '
-alias y='yay'
-alias make_recorder='DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+") && pactl load-module module-combine-sink sink_name=record-n-pipe slaves=$DEFAULT_OUTPUT sink_properties=device.description="Record-and-Pipe"'
-#DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+")
 
 
 # PERL stuff
@@ -43,8 +42,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/thomas/perl5"; export PERL_MM_OPT;
 # Ruby jekyll
 export PATH=$PATH:/home/thomas/.local/share/gem/ruby/3.0.0/bin
 
-
-#zprof
 
 export QT_STYLE_OVERRIDE=adwaita
 

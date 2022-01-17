@@ -1,0 +1,11 @@
+[core]
+	autocrlf = input
+[user]
+	email = substantialimpulse@pm.me
+	name = Thomas
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
+[credential]
+	helper = cache
