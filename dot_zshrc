@@ -55,8 +55,19 @@ export PATH=$PATH:/usr/local/cuda/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/cuda/lib
 
-
 export QT_STYLE_OVERRIDE=adwaita
+
+# stolen from https://github.com/JeffChien/dotfiles/blob/master/zsh/.oh-my-zsh/custom/plugins/ranger/ranger.plugin.zsh
+ranger-cd () {
+    tempfile='/tmp/choosedir'
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+bindkey -s "^o" 'ranger-cd^M'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
