@@ -1,0 +1,21 @@
+
+source ~/.config/neomutt/settings
+source ~/.config/neomutt/colors
+source ~/.config/neomutt/mappings
+
+# Accounts
+
+source ~/.config/neomutt/accounts/gmail
+folder-hook $folder 'source ~/.config/neomutt/accounts/gmail'
+
+source ~/.config/neomutt/accounts/proton
+folder-hook $folder 'source ~/.config/neomutt/accounts/proton'
+
+source ~/.config/neomutt/accounts/privat
+folder-hook $folder 'source ~/.config/neomutt/accounts/privat'
+
+set real_name = "Thomas L"
+
+#set sidebar_visible = yes
+#set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+#set mail_check_stats

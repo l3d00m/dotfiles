@@ -1,0 +1,7 @@
+# HTML
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+#PDFs
+application/pdf; /usr/bin/evince %s pdf
+
+#Images

@@ -4,6 +4,9 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+set-window-option -g bell-action other
+set-window option -g xterm-keys on
+set-option -g repeat-time 200
 
 # -- navigation ----------------------------------------------------------------
 
@@ -20,7 +23,7 @@
 # new window retains current path, possible values are:
 #   - true
 #   - false (default)
-tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_window_retain_current_path=true
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -338,14 +341,16 @@ tmux_conf_copy_to_os_clipboard=true
 set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
-# set -gu prefix2
-# unbind C-a
-# unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
+set -gu prefix2
+unbind C-a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
 
 # move status line to top
 #set -g status-position top
+
+bind C-b send-key C-a
 
 
 # -- tpm -----------------------------------------------------------------------

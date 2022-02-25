@@ -20,6 +20,8 @@ antigen bundle thefuck
 antigen bundle virtualenv
 antigen bundle safe-paste
 antigen bundle archlinux
+antigen bundle ag
+antigen bundle z
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
