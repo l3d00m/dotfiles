@@ -10,7 +10,7 @@ M.ui = {
 }
 
 local userPlugins = require "custom.plugins" -- path to table
-M.plugins = {   
+M.plugins = {
   install = userPlugins
 }
 
