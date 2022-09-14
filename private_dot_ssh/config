@@ -16,6 +16,8 @@ Host bbb10
     User root
 Host reims
     HostName reims2.duckdns.org
+    User ubuntu
+    ForwardAgent yes
 Host raspi4
     HostName raspi4
     User pi
@@ -27,3 +29,15 @@ Host raspi-mirror
 Host iot
     HostName 192.168.111.50
     User pi
+
+Host github.com
+    User git
+    Port 22
+    Hostname github.com
+    TCPKeepAlive yes
+    IdentitiesOnly yes
+
+Host storagebox
+    User u294761
+    Hostname u294761.your-storagebox.de
+    Port 23

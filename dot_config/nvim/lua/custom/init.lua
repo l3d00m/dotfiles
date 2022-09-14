@@ -12,3 +12,5 @@ map("i", "jk", "<ESC>")
 local opt = vim.opt
 opt.linebreak = true
 opt.timeoutlen = 250
+
+vim.g.transparent_enabled = true

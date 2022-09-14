@@ -9,9 +9,8 @@ M.ui = {
    theme = "gruvchad",
 }
 
-local userPlugins = require "custom.plugins" -- path to table
 M.plugins = {
-  install = userPlugins
+ user = require "custom.plugins",
 }
 
 return M
