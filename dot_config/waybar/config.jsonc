@@ -1,0 +1,48 @@
+{
+    "include": [
+        "/usr/share/sway/templates/waybar/config.jsonc"
+    ],
+    "height": "20",
+    "modules-right": [
+        // informational
+        "custom/github",
+        "custom/clipboard",
+        "cpu",
+        "memory",
+
+        "bluetooth",
+
+        // media
+        "custom/playerctl",
+        "idle_inhibitor",
+        "custom/dnd",
+        "pulseaudio",
+        "backlight",
+
+        // system
+        "custom/sunset",
+        "custom/pacman",
+
+        "tray",
+        "battery",
+        "clock"
+    ],
+    "cpu": {
+        "interval": 2,
+        "format": "﬙ {usage}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "swaymsg exec \\$term_float htop"
+    },
+    "memory": {
+        "interval": 2,
+        "format": " {}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "swaymsg exec \\$term_float htop"
+    }
+}
