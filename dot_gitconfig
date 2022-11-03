@@ -1,11 +1,22 @@
 [core]
-	autocrlf = input
+  autocrlf = input
 [user]
-	email = substantialimpulse@pm.me
-	name = Thomas
+  email = substantialimpulse@pm.me
+  name = Thomas
 [pull]
-	ff = only
+  ff = only
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [credential]
-	helper = cache
+  helper = cache
+
+[core]
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
