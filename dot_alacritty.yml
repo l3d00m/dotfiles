@@ -1,9 +1,5 @@
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux new-session -A -s main"
 font:
   normal:
     family: MesloLGS NF
@@ -18,6 +14,5 @@ font:
     family: MesloLGS NF
     style: Bold Italic
   size: 11
-  use_thin_strokes: false
 window:
   startup_mode: Maximized
