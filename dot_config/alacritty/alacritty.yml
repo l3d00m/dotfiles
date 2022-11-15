@@ -16,6 +16,6 @@ font:
   size: 11
 window:
   startup_mode: Maximized
-  opacity: 0.8
+  opacity: 0.9
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
