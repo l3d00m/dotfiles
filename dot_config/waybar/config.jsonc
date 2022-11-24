@@ -11,6 +11,7 @@
         "memory",
 
         "bluetooth",
+        "network",
 
         // media
         "custom/playerctl",

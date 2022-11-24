@@ -1,0 +1,84 @@
+---
+
+# Any values you overwrite here will take precedence over *any* otherwise provided value.
+
+
+# The directory where everything lives in.
+# Possible values {any absolute posix path}
+working_dir_location: /home/thomas/Documents/uni/isisdl
+
+# The name of the SQlite Database (located in `working_dir_location`) used for storing metadata about files + config.
+# Possible values {any posix path}
+database_file_location: .state.db
+
+# Should videos be downloaded on this device?
+# Possible values {"true", "false"}
+download_videos: false
+
+
+# Should the filename be replaced with a sanitized version?
+# Possible values {"true", "false"}
+filename_replacing: true
+
+
+# The global whitelist of courses to be considered. Best set with `isisdl-config` and then extracted.
+# Possible values {"null", list[int] of course ID's}
+whitelist: null
+
+# The global blacklist of courses to be considered. Best set with `isisdl-config` and then extracted.
+# Possible values {"null", list[int] of course ID's}
+blacklist: [31150]
+
+
+# Should subdirectories be created?
+# Possible values {"true", "false"}
+make_subdirs: true
+
+
+# Should external links be followed?
+# Possible values {"true", "false"}
+follow_links: false
+
+
+# Should the displayed name be absolute or just the name?
+# Possible values {"true", "false"}
+absolute_path_filename: false
+
+
+# The global throttle rate. Will take precedence over throttle_rate_autorun.
+# Possible values {"null", any integer}
+throttle_rate: null
+
+# The throttle rate for when `isisdl` automatically runs.
+# Possible values {"null", any integer}
+throttle_rate_autorun: 5
+
+
+# How updates should be handled.
+# Possible values {"null", "install_pip", "install_github", "notify_pip", "notify_github"}
+update_policy: null 
+
+
+# Should telemetry data be collected?
+# Possible values {"true", "false"}
+telemetry_policy: true
+
+
+# Force a filesystem
+# Possible values {null, ext, ext2, ext3, ext4, btrfs, exfat, fat32, vfat, ntfs, hfs, hfsplus}
+force_filesystem: None
+
+
+# Number of threads to use when discovering video file sizes (ISIS does not offer an API).
+# Possible values {any integer > 0}
+video_size_discover_num_threads: 32
+
+
+# The resolution of any ordinary status has.
+# Possible values {any integer > 0}
+status_progress_bar_resolution: 50
+
+# The resolution of the download progress bar.
+# Possible values {any integer > 0}
+download_progress_bar_resolution: 10
+
