@@ -339,17 +339,18 @@ exec --no-startup-id proton-bridge --no-window
 exec --no-startup-id syncthingtray --wait
 exec --no-startup-id pavucontrol
 exec --no-startup-id playerctld daemon
+exec --no-startup-id openrgb --server
+exec --no-startup-id blueman-applet
 
 # for redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift &
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 5 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+
+exec --no-startup-id xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock
+exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend"
+
 exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id numlockx on
 exec_always --no-startup-id autorandr -c; sleep 1; ~/.config/polybar/launch.sh
 exec_always --no-startup-id flashfocus
 
@@ -391,9 +392,9 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class 	              border   backgr. text    indicator child_border
-client.focused          #8087a2  #b7bdf8 #181926 #a6da95   #8bd5ca
-client.focused_inactive #8087a2  #939ab7 #181926 #a6da95   #1e2030
-client.unfocused       	#8087a2  #1e2030 #cad3f5 #1e2030   #1e2030
+client.focused          #939ab7  #8bd5ca #181926 #a6da95   #8bd5ca
+client.focused_inactive #939ab7  #939ab7 #181926 #a6da95   #1e2030
+client.unfocused        #939ab7  #1e2030 #cad3f5 #1e2030   #1e2030
 client.urgent 	      	#a6da95  #a6da95 #cad3f5 #8bd5ca   #B5E8E0
 client.placeholder      #181926  #181926 #cad3f5 #181926
 client.background       $term_background
