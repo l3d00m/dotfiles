@@ -55,6 +55,8 @@ PERL_MM_OPT="INSTALL_BASE=/home/thomas/perl5"; export PERL_MM_OPT;
 export PATH=$PATH:/home/thomas/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/usr/local/cuda/bin
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export LD_LIBRARY_PATH=/usr/local/cuda/lib
 
 export FZF_DEFAULT_OPTS=" \
