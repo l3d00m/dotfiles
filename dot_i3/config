@@ -106,6 +106,7 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
 
 # focus_follows_mouse no
 
@@ -324,13 +325,15 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps
+exec_always ~/.i3/per-workspace-layout.pl
 
 exec --no-startup-id sleep 3; thunderbird
+exec --no-startup-id nm-applet
 exec --no-startup-id signal-desktop
+exec --no-startup-id pamac-tray
 exec --no-startup-id discord
 exec --no-startup-id spotify
 exec --no-startup-id nextcloud --background
@@ -341,13 +344,14 @@ exec --no-startup-id pavucontrol
 exec --no-startup-id playerctld daemon
 exec --no-startup-id openrgb --server
 exec --no-startup-id blueman-applet
+exec --no-startup-id greenclip daemon>/dev/null
 
 # for redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift &
 
-exec --no-startup-id xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock
-exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend"
+exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend" -corners ---- -detectsleep
+exec --no-startup-id xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock -corners ---- -detectsleep
 
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
