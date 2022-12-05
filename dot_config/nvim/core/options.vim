@@ -12,8 +12,7 @@ set splitbelow splitright
 
 " Time in milliseconds to wait for a mapped sequence to complete,
 " see https://unix.stackexchange.com/q/36882/221410 for more info
-set timeoutlen=500
-
+set timeoutlen=350
 set updatetime=500  " For CursorHold events
 
 " Clipboard settings, always use clipboard for all delete, yank, change, put
@@ -44,15 +43,16 @@ set backup  " create backup for files
 set backupcopy=yes  " copy the original file to backupdir and overwrite it
 
 " General tab settings
-set tabstop=2       " number of visual spaces per TAB
-set softtabstop=2   " number of spaces in tab when editing
-set shiftwidth=2    " number of spaces to use for autoindent
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " number of spaces to use for autoindent
 set expandtab       " expand tab to spaces so that tabs are spaces
 
 " Set matching pairs of characters and highlight matching brackets
 set matchpairs+=<:>,「:」,『:』,【:】,“:”,‘:’,《:》
 
-set number relativenumber  " Show line number and relative line number
+set norelativenumber
+set number
 
 " Ignore case in general, but become case-sensitive when uppercase is present
 set ignorecase smartcase

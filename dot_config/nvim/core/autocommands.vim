@@ -109,8 +109,6 @@ function! s:handle_large_file() abort
     " turning off relative number helps a lot
     set norelativenumber
     setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1
-  else
-    set eventignore-=all relativenumber
   endif
 endfunction
 

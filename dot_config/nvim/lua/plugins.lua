@@ -45,6 +45,7 @@ packer.startup {
   function(use)
     -- it is recommended to put impatient.nvim before any other plugins
     use { "lewis6991/impatient.nvim", config = [[require('impatient')]] }
+    use { "puremourning/vimspector" }
 
     use { "wbthomason/packer.nvim", opt = true }
 
@@ -81,12 +82,6 @@ packer.startup {
     use { "jeetsukumaran/vim-pythonsense", ft = { "python" } }
 
     use { "machakann/vim-swap", event = "VimEnter" }
-
-    -- IDE for Lisp
-    if utils.executable("sbcl") then
-      -- use 'kovisoft/slimv'
-      use { "vlime/vlime", rtp = "vim/", ft = { "lisp" } }
-    end
 
     -- Super fast buffer jump
     use {
@@ -160,12 +155,8 @@ packer.startup {
       end,
     }
 
-    -- For Windows and Mac, we can open an URL in the browser. For Linux, it may
-    -- not be possible since we maybe in a server which disables GUI.
-    if vim.g.is_win or vim.g.is_mac then
-      -- open URL in browser
-      use { "tyru/open-browser.vim", event = "VimEnter" }
-    end
+    -- open URL in browser
+    use { "tyru/open-browser.vim", event = "VimEnter" }
 
     -- Only install these plugins if ctags are installed on the system
     if utils.executable("ctags") then
@@ -294,18 +285,6 @@ packer.startup {
     use { "skywind3000/asyncrun.vim", opt = true, cmd = { "AsyncRun" } }
 
     use { "cespare/vim-toml", ft = { "toml" }, branch = "main" }
-
-    -- Edit text area in browser using nvim
-    if vim.g.is_win or vim.g.is_mac then
-      use {
-        "glacambre/firenvim",
-        run = function()
-          fn["firenvim#install"](0)
-        end,
-        opt = true,
-        setup = [[vim.cmd('packadd firenvim')]],
-      }
-    end
 
     -- Debugger plugin
     if vim.g.is_win or vim.g.is_linux then

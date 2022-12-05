@@ -8,6 +8,10 @@ keymap.set({ "n", "x" }, ";", ":")
 -- Turn the word under cursor to upper case
 keymap.set("i", "<c-u>", "<Esc>viwUea")
 
+keymap.set("i", "jk", "<Esc>")
+keymap.set("n", "<c-s>", ":w<CR>")
+keymap.set("n", "<leader>di", "<Plug>VimspectorBalloonEval")
+
 -- Turn the current word into title case
 keymap.set("i", "<c-t>", "<Esc>b~lea")
 
