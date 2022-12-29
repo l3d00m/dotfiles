@@ -265,7 +265,8 @@ for_window [class="Xfburn"] floating enable
 for_window [class="gnome-control-center"] floating enable
 for_window [class="Nextcloud"] floating enable
 for_window [class="Blueman-manager"] floating enable
-
+for_window [class="NoiseTorch"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -339,7 +340,7 @@ exec --no-startup-id discord
 exec --no-startup-id spotify
 exec --no-startup-id nextcloud --background
 exec --no-startup-id vorta -d
-exec --no-startup-id sleep 2; proton-bridge --no-window
+exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id syncthingtray --wait
 exec --no-startup-id pavucontrol
 exec --no-startup-id playerctld daemon
@@ -353,7 +354,7 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift &
 
 exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend" -corners ---- -detectsleep
-exec --no-startup-id xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock -corners ---- -detectsleep
+exec --no-startup-id sleep 1; xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock -corners ---- -detectsleep
 
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on

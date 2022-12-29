@@ -28,7 +28,7 @@ vim.g.did_install_default_menus = 1  -- do not load menu
 vim.g.python3_host_prog = '/usr/bin/python'
 
 -- Custom mapping <leader> (see `:h mapleader` for more info)
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Enable highlighting for lua HERE doc inside vim script
 vim.g.vimsyn_embed = 'l'

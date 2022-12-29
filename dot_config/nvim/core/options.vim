@@ -62,7 +62,11 @@ set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " Break line at predefined characters
-set linebreak
+" set linebreak
+set textwidth=0
+set wrapmargin=0
+set wrap
+
 " Character to show before the lines that have been soft-wrapped
 set showbreak=↪
 
@@ -177,5 +181,4 @@ set diffopt+=closeoff  " turn off diff when one file window is closed
 set diffopt+=context:3  " context for diff
 set diffopt+=internal,indent-heuristic,algorithm:histogram
 
-set nowrap  " do no wrap
 set noruler
