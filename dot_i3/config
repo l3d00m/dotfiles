@@ -94,13 +94,14 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Start Applications
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
+bindsym $mod+o exec alacritty -e 'ranger'
 bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b --backend glx
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -326,7 +327,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b --backend glx
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id clipit
 exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps
@@ -343,7 +344,7 @@ exec --no-startup-id vorta -d
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id syncthingtray --wait
 exec --no-startup-id pavucontrol
-exec --no-startup-id playerctld daemon
+#exec --no-startup-id playerctld daemon # spams dbus when used with polybar-spotify
 exec --no-startup-id openrgb --server
 exec --no-startup-id blueman-applet
 exec --no-startup-id greenclip daemon>/dev/null
