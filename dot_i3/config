@@ -101,7 +101,7 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b --backend glx
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -327,11 +327,17 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b --backend glx
+exec --no-startup-id sleep 1; nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id clipit
 exec --no-startup-id setxkbmap -layout de -option ctrl:nocaps
+exec --no-startup-id autorandr -l normal; sleep 1; ~/.config/polybar/launch.sh
+
 exec_always ~/.i3/per-workspace-layout.pl
+exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id numlockx on
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id flashfocus
+
 
 exec --no-startup-id sleep 3; thunderbird
 exec --no-startup-id nm-applet
@@ -344,7 +350,7 @@ exec --no-startup-id vorta -d
 exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id syncthingtray --wait
 exec --no-startup-id pavucontrol
-#exec --no-startup-id playerctld daemon # spams dbus when used with polybar-spotify
+exec --no-startup-id playerctld daemon
 exec --no-startup-id openrgb --server
 exec --no-startup-id blueman-applet
 exec --no-startup-id greenclip daemon>/dev/null
@@ -352,15 +358,10 @@ exec --no-startup-id kdeconnect-indicator
 
 # for redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec --no-startup-id redshift &
+exec --no-startup-id redshift-gtk &
 
-exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend" -corners ---- -detectsleep
-exec --no-startup-id sleep 1; xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock -corners ---- -detectsleep
-
-exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id numlockx on
-exec_always --no-startup-id autorandr -c; sleep 1; ~/.config/polybar/launch.sh
-exec_always --no-startup-id flashfocus
+#exec --no-startup-id xautolock -time 15 -locker "blurlock; systemctl suspend" -corners ---- -detectsleep -notify 60 -notifier "notify-send -u critical -t 10000 'Locking in 60s'"
+#exec --no-startup-id sleep 1; xautolock -notify 10 -notifier "notify-send -u critical -t 4000 'Locking in 10s'" -time 5 -locker blurlock -corners ---- -detectsleep
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
