@@ -56,7 +56,7 @@ throttle_rate_autorun: 5
 
 # How updates should be handled.
 # Possible values {"null", "install_pip", "install_github", "notify_pip", "notify_github"}
-update_policy: null
+update_policy: install_pip
 
 
 # Should telemetry data be collected?

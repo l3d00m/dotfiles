@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if hash pacman 2>/dev/null ; then
-    sudo pacman -S yay thefuck exa fzf zsh tmux xclip ranger neovim ripgrep
+    sudo pacman -S yay thefuck exa fzf zsh tmux xclip ranger neovim ripgrep python-pynvim
     yay -S ccat ttf-meslo-nerd-font-powerlevel10k fpp-git urlview
 elif hash apt-get 2>/dev/null ; then
     sudo apt install -y thefuck exa fzf zsh tmux xclip ranger
