@@ -42,6 +42,7 @@ antigen apply
 
 
 source ~/.aliases
+export EDITOR=/usr/bin/nvim
 
 
 # PERL trash
