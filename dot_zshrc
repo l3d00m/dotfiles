@@ -23,6 +23,7 @@ antigen bundle archlinux
 antigen bundle ag
 antigen bundle z
 
+#antigen bundle catppuccin/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
@@ -42,8 +43,8 @@ antigen apply
 
 
 source ~/.aliases
-export EDITOR=/usr/bin/nvim
 
+export EDITOR=/usr/bin/nvim
 
 # PERL trash
 PATH="/home/thomas/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -89,6 +90,8 @@ fay() {
 	packages=$(awk {'print $1'} <<< $(yay -Ss $1 | awk 'NR%2 {printf "\033[1;32m%s \033[0;36m%s\033[0m — ",$1,$2;next;}{ print substr($0, 5, length($0) - 4); }' | fzf -m --ansi))
 	[ "$packages" ] && yay -S $(echo "$packages" | tr "\n" " ")
 }
+
+function gitignore() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ > .gitignore;}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
