@@ -79,8 +79,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "light -A 5"
+bindsym XF86MonBrightnessDown exec "light -U 5"
 
 # Pulse Audio control
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
@@ -365,6 +365,7 @@ exec --no-startup-id redshift-gtk &
 
 # screen lock and suspend
 exec --no-startup-id xautolock -time 5 -locker "blurlock -n" -notify 10 -notifier "notify-send -u critical -t 5000 'Locking display soon'" -corners --++ -detectsleep -killtime 10 -killer "systemctl suspend"
+exec --no-startup-id xss-lock -- blurlock -n
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
