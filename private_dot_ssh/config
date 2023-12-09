@@ -2,33 +2,6 @@ Host spluseins-i.ostfalia.de
     Port 8080
 Host spluseins.de
     Port 8080
-Host bbb1
-    HostName 195.90.209.203
-    User root
-Host bbb2
-    HostName 178.254.45.52
-    User root
-Host bbb3
-    HostName 178.254.37.188
-    User root
-Host bbb10
-    HostName 195.90.201.210
-    User root
-Host reims
-    HostName reims2.duckdns.org
-    User ubuntu
-    ForwardAgent yes
-Host raspi4
-    HostName raspi4
-    User pi
-
-Host raspi-mirror
-    HostName raspi-mirror
-    User pi
-
-Host iot
-    HostName 192.168.111.50
-    User pi
 
 Host github.com
     User git
