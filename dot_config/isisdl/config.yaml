@@ -27,7 +27,7 @@ whitelist: null
 
 # The global blacklist of courses to be considered. Best set with `isisdl-config` and then extracted.
 # Possible values {"null", list[int] of course ID's}
-blacklist: [31150]
+blacklist: [31150, 26940]
 
 
 # Should subdirectories be created?
