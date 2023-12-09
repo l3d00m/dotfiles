@@ -1,3 +1,5 @@
 Session.vim
 dot_gitignore
-*/**/README.md
+dot_git/
+**/LICENSE
+**/README*
