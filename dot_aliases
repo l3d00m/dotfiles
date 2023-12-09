@@ -1,6 +1,7 @@
 alias y='yay'
 alias vim='nvim'
 alias vi='nvim'
+alias hx='helix'
 alias vimdiff='nvim -d'
 alias lg='lazygit'
 #DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+")
