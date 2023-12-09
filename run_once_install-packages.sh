@@ -8,5 +8,4 @@ elif hash apt-get 2>/dev/null ; then
 fi
 
 curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
-sudo chsh -s $(which zsh) $(whoami)
-echo Execute nvim +'hi NormalFloat guibg=#1e222a' +PackerSync to setup neovim
+# sudo chsh -s $(which zsh) $(whoami)
