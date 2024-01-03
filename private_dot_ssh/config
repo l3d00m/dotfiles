@@ -14,3 +14,7 @@ Host storagebox
     User u294761
     Hostname u294761.your-storagebox.de
     Port 23
+
+Host iot
+    HostName 192.168.111.50
+    User pi
