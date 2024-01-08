@@ -92,6 +92,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+
 # Start Applications
 bindsym $mod+Ctrl+b exec alacritty -e 'bmenu'
 bindsym $mod+o exec alacritty -e 'ranger'
@@ -344,9 +345,9 @@ exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -o
 # -variant "nodeadkeys"
 
 
-exec --no-startup-id signal-desktop
-exec --no-startup-id spotify
-exec --no-startup-id pavucontrol
+#exec --no-startup-id signal-desktop
+#exec --no-startup-id spotify
+#exec --no-startup-id pavucontrol
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
@@ -408,7 +409,7 @@ client.focused_inactive #939ab7  #939ab7 #181926 #a6da95   #1e2030
 client.unfocused        #939ab7  #1e2030 #cad3f5 #1e2030   #1e2030
 client.urgent 	      	#a6da95  #a6da95 #cad3f5 #8bd5ca   #B5E8E0
 client.placeholder      #181926  #181926 #cad3f5 #181926
-client.background       $term_background
+# client.background       $term_background
 
 
 #############################
@@ -416,8 +417,8 @@ client.background       $term_background
 #############################
 
 # Set inner/outer gaps
-gaps inner 16
-gaps outer -4
+gaps inner 5
+gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
