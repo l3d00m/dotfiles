@@ -135,11 +135,12 @@ packer.startup {
       config = [[require('config.dashboard-nvim')]]
     }
 
-    use {
-      "lukas-reineke/indent-blankline.nvim",
-      event = "VimEnter",
-      config = [[require('config.indent-blankline')]],
-    }
+   -- use {
+   --   "lukas-reineke/indent-blankline.nvim",
+   --   event = "VimEnter",
+   --   main = "ibl",
+   --   config = [[require('config.indent-blankline')]],
+   -- }
 
     -- Highlight URLs inside vim
     use { "itchyny/vim-highlighturl", event = "VimEnter" }
@@ -290,6 +291,9 @@ packer.startup {
     if vim.g.is_win or vim.g.is_linux then
       use { "sakhnik/nvim-gdb", run = { "bash install.sh" }, opt = true, setup = [[vim.cmd('packadd nvim-gdb')]] }
     end
+
+
+    use {"github/copilot.vim"}
 
     -- Session management plugin
     use { "tpope/vim-obsession", cmd = "Obsession" }
