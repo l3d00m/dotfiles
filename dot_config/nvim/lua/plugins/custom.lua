@@ -1,6 +1,4 @@
 return {
-  "github/copilot.vim",
-  -- add symbols-outline
   {
     "conform.nvim",
     opts = {
