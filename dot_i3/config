@@ -334,26 +334,18 @@ bindsym $mod+asciicircum exec --no-startup-id blurlock
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id autorandr -l normal; sleep 1; ~/.config/polybar/launch.sh; nitrogen --restore; picom -b
 
-exec_always ~/.i3/per-workspace-layout.pl
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:swapescape
-#exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
-# -variant "nodeadkeys"
 
 
-#exec --no-startup-id signal-desktop
-#exec --no-startup-id spotify
-#exec --no-startup-id pavucontrol
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
 exec --no-startup-id sleep 10; vorta -d
-exec --no-startup-id protonmail-bridge --no-window
-exec --no-startup-id sleep 10; syncthingtray --wait
 exec --no-startup-id playerctld daemon
 exec --no-startup-id sleep 5; openrgb --server
 exec --no-startup-id blueman-applet
