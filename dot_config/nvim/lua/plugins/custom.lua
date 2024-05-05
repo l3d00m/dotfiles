@@ -3,15 +3,14 @@ return {
     "conform.nvim",
     opts = {
       formatters_by_ft = {
-        lua = { "stylua" },
-        fish = { "fish_indent" },
-        sh = { "shfmt" },
-        markdown = { "prettierd" },
-        python = { "autopep8" },
-        typescript = { "eslint_d" },
-        javascript = { "eslint_d" },
         vue = { "eslint_d" },
       },
     },
+  },
+  {
+    "vim-pandoc/vim-pandoc",
+  },
+  {
+    "vim-pandoc/vim-pandoc-syntax",
   },
 }
