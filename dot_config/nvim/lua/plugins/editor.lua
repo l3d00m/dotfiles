@@ -25,4 +25,24 @@ return {
       },
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    opts = {
+      keywords = {
+        FIXME = {
+          icon = " ", -- icon used for the sign, and in search results
+          color = "error", -- can be a hex color, or a named color (see below)
+          alt = { "fixme" }, -- a set of other keywords that all map to this FIX keywords
+        },
+        TODO = { icon = " ", color = "info", alt = { "todo" } },
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+      },
+      search = {
+        pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+      },
+      highlight = {
+        pattern = [[^[^a-zA-Z0-9\s]*<(KEYWORDS)\s]], -- match without the extra colon. You'll likely get false positives
+      },
+    },
+  },
 }
