@@ -3,3 +3,6 @@ dot_gitignore
 dot_git/
 **/LICENSE
 **/README*
+**/*gtk*/bookmarks
+**/*gtk*/gtk.css
+**/*gtk*/servers
