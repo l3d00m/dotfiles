@@ -51,28 +51,46 @@ return {
       },
     },
   },
-  "akinsho/git-conflict.nvim",
-  lazy = false,
-  opts = {
-    default_mappings = {
-      ours = "<leader>gho",
-      theirs = "<leader>ght",
-      none = "<leader>gh0",
-      both = "<leader>ghb",
-      next = "]x",
-      prev = "[x",
+  {
+    "akinsho/git-conflict.nvim",
+    lazy = false,
+    opts = {
+      default_mappings = {
+        ours = "<leader>gho",
+        theirs = "<leader>ght",
+        none = "<leader>gh0",
+        both = "<leader>ghb",
+        next = "]x",
+        prev = "[x",
+      },
+    },
+    keys = {
+      {
+        "<leader>gx",
+        "<cmd>GitConflictListQf<cr>",
+        desc = "List Conflicts",
+      },
+      {
+        "<leader>gr",
+        "<cmd>GitConflictRefresh<cr>",
+        desc = "Refresh Conflicts",
+      },
     },
   },
-  keys = {
-    {
-      "<leader>gx",
-      "<cmd>GitConflictListQf<cr>",
-      desc = "List Conflicts",
-    },
-    {
-      "<leader>gr",
-      "<cmd>GitConflictRefresh<cr>",
-      desc = "Refresh Conflicts",
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          hide_gitignored = true,
+          hide_dotfiles = false,
+          hide_hidden = false,
+          never_show = {
+            "node_modules",
+          },
+        },
+      },
     },
   },
 }
