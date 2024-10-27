@@ -1,7 +1,5 @@
 ---
-
 # Any values you overwrite here will take precedence over *any* otherwise provided value.
-
 
 # The directory where everything lives in.
 # Possible values {any absolute posix path}
@@ -15,11 +13,9 @@ database_file_location: .state.db
 # Possible values {"true", "false"}
 download_videos: false
 
-
 # Should the filename be replaced with a sanitized version?
 # Possible values {"true", "false"}
 filename_replacing: true
-
 
 # The global whitelist of courses to be considered. Best set with `isisdl-config` and then extracted.
 # Possible values {"null", list[int] of course ID's}
@@ -29,21 +25,17 @@ whitelist: null
 # Possible values {"null", list[int] of course ID's}
 blacklist: [31150, 26940]
 
-
 # Should subdirectories be created?
 # Possible values {"true", "false"}
 make_subdirs: true
 
-
 # Should external links be followed?
 # Possible values {"true", "false"}
-follow_links: false
-
+follow_links: true
 
 # Should the displayed name be absolute or just the name?
 # Possible values {"true", "false"}
 absolute_path_filename: false
-
 
 # The global throttle rate. Will take precedence over throttle_rate_autorun.
 # Possible values {"null", any integer}
@@ -53,13 +45,10 @@ throttle_rate: null
 # Possible values {"null", any integer}
 throttle_rate_autorun: 5
 
-
 # How updates should be handled.
 # Possible values {"null", "install_pip", "install_github", "notify_pip", "notify_github"}
-update_policy: install_pip
-
+update_policy: null
 
 # Should telemetry data be collected?
 # Possible values {"true", "false"}
 telemetry_policy: true
-
