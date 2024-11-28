@@ -1,3 +1,4 @@
+alias s="kitten ssh"
 alias y='yay'
 alias vim='nvim'
 alias vi='nvim'
