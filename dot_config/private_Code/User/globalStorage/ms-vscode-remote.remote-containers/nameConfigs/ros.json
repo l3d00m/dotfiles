@@ -1,0 +1,23 @@
+{
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+
+  // Container user VS Code should use when connecting
+"extensions": [
+	"github.copilot",
+	"github.copilot-chat",
+	"github.vscode-pull-request-github",
+	"ms-iot.vscode-ros",
+	"ms-python.debugpy",
+	"ms-python.python",
+	"ms-python.vscode-pylance",
+	"ms-vscode.cmake-tools",
+	"ms-vscode.cpptools",
+	"ms-vscode.cpptools-extension-pack",
+	"ms-vscode.cpptools-themes",
+	"twxs.cmake"
+],
+}
