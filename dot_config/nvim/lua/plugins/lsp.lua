@@ -13,11 +13,19 @@ return {
             },
           },
         },
-        typst_lsp = {
+        {
+          "williamboman/mason.nvim",
+          opts = {
+            ensure_installed = {
+              "tinymist",
+            },
+          },
+        },
+        tinymist = {
           offset_encoding = "utf-8",
           settings = {
-            exportPdf = "onType", -- Choose onType, onSave or never.
-            -- serverPath = "" -- Normally, there is no need to uncomment it.
+            exportPdf = "onType",
+            -- semantic_tokens = "disable",
           },
         },
       },
