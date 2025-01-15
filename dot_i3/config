@@ -272,6 +272,7 @@ for_window [class="Nextcloud"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="NoiseTorch"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [title="^zoom$" class="[zoom]*"] floating enable 
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
