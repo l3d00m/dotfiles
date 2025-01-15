@@ -1,5 +1,13 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "tinymist",
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
@@ -13,19 +21,10 @@ return {
             },
           },
         },
-        {
-          "williamboman/mason.nvim",
-          opts = {
-            ensure_installed = {
-              "tinymist",
-            },
-          },
-        },
         tinymist = {
           offset_encoding = "utf-8",
           settings = {
-            exportPdf = "onType",
-            -- semantic_tokens = "disable",
+            -- exportPdf = "onType",
           },
         },
       },

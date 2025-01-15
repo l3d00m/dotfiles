@@ -273,6 +273,7 @@ for_window [class="Nextcloud"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="NoiseTorch"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [title="^zoom$" class="[zoom]*"] floating enable 
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -347,10 +348,10 @@ exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
 exec --no-startup-id sleep 10; vorta -d
 exec --no-startup-id playerctld daemon
-exec --no-startup-id sleep 5; openrgb --server
 exec --no-startup-id blueman-applet
-exec --no-startup-id greenclip daemon>/dev/null
-exec --no-startup-id kdeconnect-indicator
+# exec --no-startup-id greenclip daemon>/dev/null
+exec --no-startup-id sleep 5; kdeconnect-indicator
+exec --no-startup-id msm_notifier
 
 # for redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
