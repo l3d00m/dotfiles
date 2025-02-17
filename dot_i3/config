@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 2
+default_border pixel 3
 default_floating_border normal
 
 # Hide borders
@@ -16,7 +16,7 @@ hide_edge_borders none
 
 # change borders
 bindsym $mod+y border normal
-bindsym $mod+u border pixel 1
+bindsym $mod+u border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -34,46 +34,7 @@ bindsym $mod+q kill
 # start program launcher
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t1
 
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
-
-## Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-#	i3bar_command i3bar
-#	status_command i3status
-#	position top
-#
-### please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#
-#	bindsym button4 nop
-#	bindsym button5 nop
-##   font xft:URWGothic-Book 11
-#	strip_workspace_numbers yes
-#
-#    colors {
-#        background #222D31
-#        statusline #F9FAF9
-#        separator  #454947
-#
-##                      border  backgr. text
-#        focused_workspace  #F9FAF9 #16a085 #292F34
-#        active_workspace   #595B5B #353836 #FDF6E3
-#        inactive_workspace #595B5B #222D31 #EEE8D5
-#        binding_mode       #16a085 #2C2C2C #F9FAF9
-#        urgent_workspace   #16a085 #FDF6E3 #E5201D
-#    }
-#}
+bindsym $mod+p exec pavucontrol
 
 
 ################################################################################################
@@ -94,19 +55,13 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # Start Applications
-bindsym $mod+Ctrl+b exec kitty -e 'bmenu'
 bindsym $mod+o exec kitty -e 'ranger'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+F2 exec nautilus
+# bindsym $mod+F3 exec nautilus
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
 
@@ -236,6 +191,8 @@ assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws3
 for_window [class="Thunderbird"] move to workspace $ws3
 for_window [class="Pavucontrol"] move to workspace $ws3
+for_window [class="Signal"] move to workspace $ws3
+for_window [class="Firefox"] move to workspace $ws1
 
 workspace 1 output DP-1
 workspace 2 output primary
@@ -260,6 +217,13 @@ for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
 for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
+for_window [class="Wine"] floating enable
+for_window [class="Blueberry.py"] floating enable
+for_window [class="Transmission-gtk"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [class="xpad"] floating enable
+for_window [class="Zeal"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
@@ -283,9 +247,6 @@ bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
@@ -343,6 +304,8 @@ exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
 
 
+exec --no-startup-id signal-desktop
+exec --no-startup-id spotify
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
@@ -350,8 +313,9 @@ exec --no-startup-id sleep 10; vorta -d
 exec --no-startup-id playerctld daemon
 exec --no-startup-id blueman-applet
 # exec --no-startup-id greenclip daemon>/dev/null
-exec --no-startup-id sleep 5; kdeconnect-indicator
-exec --no-startup-id msm_notifier
+exec --no-startup-id sleep 10; kdeconnect-indicator
+exec --no-startup-id sleep 5; sunshine
+exec --no-startup-id sleep 3; msm_notifier
 
 # for redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
@@ -392,9 +356,6 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
-
 # Theme colors
 # class 	              border   backgr. text    indicator child_border
 client.focused          #939ab7  #8bd5ca #181926 #a6da95   #8bd5ca
@@ -423,7 +384,7 @@ smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+smart_borders no_gaps
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
