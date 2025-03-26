@@ -92,5 +92,18 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        path_display = {
+          filename_first = {
+            reverse_directories = true,
+          },
+        },
+        file_ignore_patterns = { "package%-lock%.json" },
+      },
+    },
+  },
   -- { "kaarmu/typst.vim", ft = { "typst" }, lazy = false },
 }
