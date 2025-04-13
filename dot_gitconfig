@@ -5,6 +5,10 @@
   name = Thomas
 [pull]
   ff = only
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
 [init]
   defaultBranch = main
 [credential]
@@ -17,11 +21,35 @@
 [delta]
   navigate = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [diff]
   colorMoved = default
   external = difft
 [rerere]
 	enabled = true
+  autoupdate = true
 [fetch]
-	prune = true
+  prune = true
+  pruneTags = true
+  all = true
+
+
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+
+# why the hell not?
+
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
+[core]
+  excludesfile = ~/.gitignore
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
