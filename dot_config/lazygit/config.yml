@@ -1,4 +1,11 @@
 git:
+# Not working on windows!
   paging:
     colorArg: always
     pager: delta --paging=never
+gui:
+  branchColorPatterns:
+    "chore/.+": "black"
+    "fix/.+": "red"
+    "feature/.+": "green"
+    "feat/.+": "green"
