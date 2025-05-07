@@ -22,9 +22,9 @@ return {
           },
         },
         tinymist = {
-          offset_encoding = "utf-8",
+          -- offset_encoding = "utf-8",
           settings = {
-            -- exportPdf = "onType",
+            exportPdf = "onType",
           },
         },
       },
