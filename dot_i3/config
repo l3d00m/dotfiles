@@ -308,7 +308,7 @@ exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
-exec --no-startup-id sleep 5; nextcloud --background
+exec --no-startup-id sleep 15; nextcloud --background
 exec --no-startup-id sleep 10; vorta -d
 exec --no-startup-id playerctld daemon
 exec --no-startup-id blueman-applet
