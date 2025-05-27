@@ -11,6 +11,16 @@ return {
     },
   },
   {
+    "julienvincent/hunk.nvim",
+    cmd = { "DiffEditor" },
+    config = function()
+      require("hunk").setup()
+    end,
+  },
+  {
+    "rafikdraoui/jj-diffconflicts",
+  },
+  {
     "olimorris/persisted.nvim",
     lazy = false, -- make sure the plugin is always loaded at startup
     opts = {
@@ -92,18 +102,4 @@ return {
       },
     },
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        path_display = {
-          filename_first = {
-            reverse_directories = true,
-          },
-        },
-        file_ignore_patterns = { "package%-lock%.json" },
-      },
-    },
-  },
-  -- { "kaarmu/typst.vim", ft = { "typst" }, lazy = false },
 }
