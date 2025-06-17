@@ -7,4 +7,11 @@ email = "substantialimpulse@pm.me"
 [ui]
 default-command = "log"
 merge-editor = "meld"
-# diff-editor = "meld"
+diff-editor = "meld"
+editor = ["nvim", "--cmd", "let g:flatten_wait=1"]
+
+[aliases]
+# Graph only up to master
+l = ["log", "-r", "(main..@):: | (main..@)-"]
+# Diff with meld
+diffm = ["diff", "--tool", "meld"]
