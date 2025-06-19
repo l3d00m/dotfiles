@@ -10,3 +10,17 @@ alias make_recorder='DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | gr
 if hash ccat 2>/dev/null ; then
     alias cat='ccat'
 fi
+
+pandoc_watch() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: pandoc_watch <filename.ext>"
+    return 1
+  fi
+  fname="$1"
+  ext="${fname##*.}"
+  pandoc "$fname" -o "${fname%.*}.pdf" --template eisvogel.latex
+  zathura "${fname%.*}.pdf" &
+  # Watch all files with the same extension as input and run pandoc on the input file
+  ls *."$ext" | entr -s "pandoc '$fname' -o '${fname%.*}.pdf' --template eisvogel.latex"
+}
+alias pwatch='pandoc_watch'
