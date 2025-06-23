@@ -1,12 +1,29 @@
 alias s="kitten ssh"
 alias y='yay'
-alias vim='nvim'
 alias vi='nvim'
-alias hx='helix'
 alias vimdiff='nvim -d'
 alias lg='lazygit'
-#DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+")
-alias make_recorder='DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+") && pactl load-module module-combine-sink sink_name=record-n-pipe slaves=$DEFAULT_OUTPUT sink_properties=device.description="Record-and-Pipe"'
-if hash ccat 2>/dev/null ; then
-    alias cat='ccat'
-fi
+alias jjw='watch --color jj --ignore-working-copy log --color=always'
+alias zt='zathura'
+
+# EXA
+alias ls='eza'                                                        # ls
+alias l='eza -lbF --git --icons=auto'                                 # list, size, type, git
+alias ll='eza -lbGF --git --icons=auto'                               # long list
+alias llm='eza -lbGF --git --icons=auto --sort=modified'              # long list, modified date sort
+alias lt='eza --tree --level=2'                                        # tree
+alias la='eza -lbhHigUmuSa --icons=auto --time-style=long-iso --git --color-scale'  # all list
+
+pandoc_watch() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: pandoc_watch <filename.ext>"
+    return 1
+  fi
+  fname="$1"
+  ext="${fname##*.}"
+  pandoc "$fname" -o "${fname%.*}.pdf" --template eisvogel.latex
+  zathura "${fname%.*}.pdf" &
+  # Watch all files with the same extension as input and run pandoc on the input file
+  ls *."$ext" | entr -s "pandoc '$fname' -o '${fname%.*}.pdf' --template eisvogel.latex"
+}
+alias pwatch='pandoc_watch'
