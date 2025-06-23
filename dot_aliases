@@ -1,15 +1,10 @@
 alias s="kitten ssh"
 alias y='yay'
-alias vim='nvim'
 alias vi='nvim'
-alias hx='helix'
 alias vimdiff='nvim -d'
 alias lg='lazygit'
-#DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+")
-alias make_recorder='DEFAULT_OUTPUT=$(pacmd list-sinks | grep -A1 "* index" | grep -oP "<\K[^ >]+") && pactl load-module module-combine-sink sink_name=record-n-pipe slaves=$DEFAULT_OUTPUT sink_properties=device.description="Record-and-Pipe"'
-if hash ccat 2>/dev/null ; then
-    alias cat='ccat'
-fi
+alias jjw='watch --color jj --ignore-working-copy log --color=always'
+alias zt='zathura'
 
 # EXA
 alias ls='eza'                                                        # ls
