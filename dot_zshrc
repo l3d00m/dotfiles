@@ -99,3 +99,4 @@ function gitignore() { curl -sLw "\n" https://www.toptal.com/developers/gitignor
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(uvx --generate-shell-completion zsh)"
+eval "$(zoxide init zsh --cmd cd)"
