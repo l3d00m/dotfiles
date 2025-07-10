@@ -8,6 +8,12 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = { markdown = false },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
@@ -22,7 +28,6 @@ return {
           },
         },
         tinymist = {
-          -- offset_encoding = "utf-8",
           settings = {
             exportPdf = "onType",
           },
