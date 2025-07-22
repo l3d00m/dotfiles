@@ -270,7 +270,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #{weather} , CPU #{cpu_percentage} , %R , %d %b "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} #{weather} , CPU #{cpu_percentage} , #{?battery_percentage,BAT #{battery_percentage},} , %R , %d %b "
 #tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{pretty_pane_current_path} "
 
 # status left style
@@ -384,6 +384,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 set-option -ga terminal-overrides ",xterm-256color:Tc"
 
 set-window-option -g bell-action other
+set-window-option -g visual-bell on
 set-window-option -g xterm-keys on
 set-option -g repeat-time 200
 
@@ -452,7 +453,7 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-strategy-nvim 'session'
 set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-processes 'ssh jjw viddy "~yarn start"'
+set -g @resurrect-processes 'lazygit ssh jjw viddy "~yarn start"'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 set -g @continuum-save-interval '5'

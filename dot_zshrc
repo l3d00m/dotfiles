@@ -16,7 +16,6 @@ antigen bundle git-auto-fetch
 antigen bundle fzf
 antigen bundle tmux
 antigen bundle yarn
-antigen bundle thefuck
 antigen bundle virtualenv
 antigen bundle safe-paste
 antigen bundle archlinux
@@ -29,7 +28,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle "MichaelAquilina/zsh-you-should-use"
 antigen bundle lukechilds/zsh-nvm
-antigen bundle "rkh/zsh-jj"
 
 #antigen theme agnoster
 antigen theme romkatv/powerlevel10k
@@ -100,3 +98,4 @@ function gitignore() { curl -sLw "\n" https://www.toptal.com/developers/gitignor
 
 eval "$(uvx --generate-shell-completion zsh)"
 eval "$(zoxide init zsh --cmd cd)"
+source <(COMPLETE=zsh jj)
