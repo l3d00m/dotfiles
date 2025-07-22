@@ -1,21 +1,20 @@
 return {
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      preset = "obsidian",
+      render_modes = { "n", "c", "t" },
+    },
+  },
+  {
     "chaoren/vim-wordmotion",
   },
   { "folke/persistence.nvim", enabled = false },
-  -- { "nvimdev/dashboard-nvim", enabled = false },
   {
     "lewis6991/gitsigns.nvim",
     opts = {
       current_line_blame = true,
     },
-  },
-  {
-    "julienvincent/hunk.nvim",
-    cmd = { "DiffEditor" },
-    config = function()
-      require("hunk").setup()
-    end,
   },
   {
     "willothy/flatten.nvim",
@@ -25,9 +24,6 @@ return {
     -- Ensure that it runs first to minimize delay when opening file from terminal
     lazy = false,
     priority = 1001,
-  },
-  {
-    "rafikdraoui/jj-diffconflicts",
   },
   {
     "olimorris/persisted.nvim",
