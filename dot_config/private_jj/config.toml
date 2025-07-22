@@ -5,6 +5,7 @@ name = "Thomas"
 email = "substantialimpulse@pm.me"
 
 [ui]
+pager = "delta"
 default-command = "log"
 merge-editor = "meld"
 diff-editor = "meld"
