@@ -57,7 +57,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Start Applications
-bindsym $mod+o exec kitty -e 'ranger'
+bindsym $mod+o exec kitty -T Ranger ranger
+bindsym $mod+m exec kitty -T Mail neomutt
 bindsym $mod+F2 exec nautilus
 # bindsym $mod+F3 exec nautilus
 bindsym $mod+Shift+p exec --no-startup-id pkill picom
@@ -311,7 +312,9 @@ exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -o
 
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
-exec --no-startup-id sleep 5; thunderbird
+# exec --no-startup-id sleep 5; thunderbird
+exec --no-startup-id sleep 3; kitty -T "Mail: Proton" neomutt
+exec --no-startup-id sleep 3; kitty -T "Mail: Uni" neomutt -F /home/thomas/.config/mutt/uni.muttrc
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
