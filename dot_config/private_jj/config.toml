@@ -10,10 +10,9 @@ merge-editor = "meld"
 diff-editor = "meld"
 editor = ["nvim", "--cmd", "let g:flatten_wait=1"]
 
-
 [aliases]
 # Log graph, only up to master
-l = ["log", "-r", "(master..@):: | (master..@)-"]
+l = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
 logdetail = ["log", "-T", "builtin_log_detailed"]
 # Diff with meld
 diffm = ["diff", "--tool", "meld"]
