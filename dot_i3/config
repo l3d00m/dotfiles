@@ -313,8 +313,9 @@ exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -o
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
 # exec --no-startup-id sleep 5; thunderbird
-exec --no-startup-id sleep 3; kitty -T "Mail: Proton" neomutt
-exec --no-startup-id sleep 3; kitty -T "Mail: Uni" neomutt -F /home/thomas/.config/mutt/uni.muttrc
+exec --no-startup-id sleep 10; mbsync -a; notmuch new
+exec --no-startup-id sleep 3; kitty -T "Mail" neomutt
+# exec --no-startup-id sleep 3; kitty -T "Mail: Uni" neomutt -F /home/thomas/.config/mutt/uni.muttrc
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
