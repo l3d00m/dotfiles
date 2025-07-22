@@ -5,6 +5,7 @@ alias vimdiff='nvim -d'
 alias lg='lazygit'
 alias jjw='viddy -t -n 1 --disable_auto_save jj --ignore-working-copy --color=always'
 alias zt='zathura'
+alias nm='neomutt'
 
 # EXA
 alias ls='eza'                                                        # ls
