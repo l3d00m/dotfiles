@@ -1,4 +1,4 @@
-## : << 'EOF'
+# : << 'EOF'
 # Oh my tmux!
 # 💛🩷💙🖤❤️🤍
 # https://github.com/gpakosz/.tmux
@@ -196,9 +196,9 @@ tmux_conf_theme_terminal_title="#h #W"
 tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
 tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_window_status_attr="none"
-tmux_conf_theme_window_status_format="#I #W"
-#tmux_conf_theme_window_status_format="#{circled_window_index} #W"
-#tmux_conf_theme_window_status_format="#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
+tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
+#tmux_conf_theme_window_status_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
+#tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
 # window current status style
 #   - built-in variables are:
@@ -470,22 +470,46 @@ set -g @continuum-save-interval '5'
 # then, use #{foo} in e.g. the 'tmux_conf_theme_status_left' or the
 # 'tmux_conf_theme_status_right' variables.
 
+# ------------------------------------------------------------------------------
+
 # # /!\ do not remove the following line
 # EOF
 #
 # # /!\ do not "uncomment" the functions: the leading "# " characters are needed
 #
-# weather() {
-#   curl -m 1 wttr.in/?format=1 2>/dev/null
-#   sleep 900 # sleep for 15 minutes, throttle network requests whatever the value of status-interval
+# # usage: #{weather}
+# weather() {                                         # see https://github.com/chubin/wttr.in#one-line-output
+#   curl -f -s -m 2 'wttr.in?format=3' || printf '\n' # /!\ make sure curl is installed
+#   sleep 900                                         # sleep for 15 minutes, throttle network requests whatever the value of status-interval
 # }
 #
+# # usage: #{online}
 # online() {
 #   ping -c 1 1.1.1.1 >/dev/null 2>&1 && printf '✔' || printf '✘'
 # }
 #
+# # usage: #{wan_ip_v4}
+# wan_ip_v4() {
+#   curl -f -s -m 2 -4 ifconfig.me
+#   sleep 300                                         # sleep for 5 minutes, throttle network requests whatever the value of status-interval
+# }
+#
+# # usage: #{wan_ip_v6}
+# wan_ip_v6() {
+#   curl -f -s -m 2 -6 ifconfig.me
+#   sleep 300                                         # sleep for 5 minutes, throttle network requests whatever the value of status-interval
+# }
+#
+# # usage: #{github_stars}, #{github_stars tmux/tmux}, ...
+# github_stars() {
+#   repository=${1##*https://github.com/}
+#   repository=${repository%% *}
+#   repository=${repository%%.git}
+#   url="https://api.github.com/repos/${repository:-gpakosz/.tmux}"
+#   curl -s "$url" | perl -MJSON::PP=decode_json -CO -0777 -E '$response = decode_json(readline *STDIN); say ($response->{stargazers_count})'
+#   sleep 300                                         # sleep for 5 minutes, throttle network requests whatever the value of status-interval
+# }
+#
 # "$@"
 # # /!\ do not remove the previous line
-
-
-
+# #     do not write below this line
