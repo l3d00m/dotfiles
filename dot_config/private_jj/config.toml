@@ -18,6 +18,16 @@ logdetail = ["log", "-T", "builtin_log_detailed"]
 diffm = ["diff", "--tool", "meld"]
 # Tug bookmark
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
+# Retrunk revisions. Typically as `jj retrunk -s ...` -- notably can be used
+# with open:
+# - jj retrunk -s 'all:roots(open())'
+retrunk = ["rebase", "-d", "trunk()"]
+# Retrunk the current stack of work.
+reheat = ["retrunk", "-s", "all:roots(trunk()..open())"]
+# Improve name
+blame = ["file", "annotate"]
+# Log all open stacks of work
+open = ["log", "-r", "open()"]
 
 [snapshot]
 auto-update-stale = true
@@ -102,3 +112,10 @@ log = 'stack(mine() | @) | trunk() | @'
 'stack()' = 'stack(@)'
 'stack(x)' = 'stack(x, 2)'
 'stack(x, n)' = 'ancestors(reachable(x, mutable()), n)'
+
+
+# The current set of "open" works. It is defined as: all stacks that are
+# reachable from my working copy, or any other commit I wrote.
+# n = 1, meaning that nothing from `trunk()` is included, so all resulting
+# commits are mutable by definition.
+'open()' = 'stack(mine() | @, 1)'
