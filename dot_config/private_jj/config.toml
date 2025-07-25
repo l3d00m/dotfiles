@@ -29,6 +29,8 @@ reheat = ["retrunk", "-s", "all:roots(trunk()..open())"]
 blame = ["file", "annotate"]
 # Log all open stacks of work
 open = ["log", "-r", "open()"]
+gf = ["git", "fetch"]
+gp = ["git", "push"]
 
 [snapshot]
 auto-update-stale = true
