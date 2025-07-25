@@ -307,8 +307,8 @@ exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
 
 
-exec --no-startup-id signal-desktop
-exec --no-startup-id spotify
+# exec --no-startup-id signal-desktop
+# exec --no-startup-id spotify
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 15; nextcloud --background
