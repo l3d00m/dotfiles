@@ -188,11 +188,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open applications on specific workspaces
+assign [class="Signal"] $ws3
 assign [class="Spotify"] $ws3
 assign [class="Signal"] $ws3
+assign [title="Mail"] $ws3
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws3
 for_window [class="Thunderbird"] move to workspace $ws3
+for_window [class="Mail"] move to workspace $ws3
 for_window [class="Pavucontrol"] move to workspace $ws3
 for_window [class="Signal"] move to workspace $ws3
 for_window [class="Firefox"] move to workspace $ws1
@@ -309,11 +312,11 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt
 #exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
-# -variant "nodeadkeys"
 
 
 exec --no-startup-id signal-desktop
 exec --no-startup-id spotify
+exec --no-startup-id sleep 10; thunderbird
 exec --no-startup-id sleep 5; goimapnotify
 exec --no-startup-id sleep 20; mbsync -a; notmuch new
 exec --no-startup-id sleep 3; kitty -T "Mail" neomutt
