@@ -12,6 +12,7 @@ diff-editor = "meld"
 editor = ["nvim", "--cmd", "let g:flatten_wait=1"]
 
 [aliases]
+d = ["diff", "--git"]
 # Log graph, only up to master
 l = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
 logdetail = ["log", "-T", "builtin_log_detailed"]
