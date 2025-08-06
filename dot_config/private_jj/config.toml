@@ -19,7 +19,7 @@ logdetail = ["log", "-T", "builtin_log_detailed"]
 # Diff with meld
 diffm = ["diff", "--tool", "meld"]
 # Tug bookmark
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())"]
 # Retrunk revisions. Typically as `jj retrunk -s ...` -- notably can be used
 # with open:
 # - jj retrunk -s 'all:roots(open())'
