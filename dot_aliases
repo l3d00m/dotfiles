@@ -3,8 +3,9 @@ alias y='yay'
 alias vi='nvim'
 alias vimdiff='nvim -d'
 alias lg='lazygit'
-alias jjw='watch --color jj --ignore-working-copy log --color=always'
+alias jjw='viddy -t -n 1 --disable_auto_save jj --ignore-working-copy --color=always'
 alias zt='zathura'
+alias nm='neomutt'
 
 # EXA
 alias ls='eza'                                                        # ls

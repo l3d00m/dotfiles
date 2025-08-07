@@ -5,19 +5,21 @@ name = "Thomas"
 email = "substantialimpulse@pm.me"
 
 [ui]
+pager = "delta"
 default-command = "log"
 merge-editor = "meld"
 diff-editor = "meld"
 editor = ["nvim", "--cmd", "let g:flatten_wait=1"]
 
 [aliases]
+d = ["diff", "--git"]
 # Log graph, only up to master
 l = ["log", "-r", "(trunk()..@):: | (trunk()..@)-"]
 logdetail = ["log", "-T", "builtin_log_detailed"]
 # Diff with meld
 diffm = ["diff", "--tool", "meld"]
 # Tug bookmark
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())"]
 # Retrunk revisions. Typically as `jj retrunk -s ...` -- notably can be used
 # with open:
 # - jj retrunk -s 'all:roots(open())'
@@ -28,6 +30,8 @@ reheat = ["retrunk", "-s", "all:roots(trunk()..open())"]
 blame = ["file", "annotate"]
 # Log all open stacks of work
 open = ["log", "-r", "open()"]
+gf = ["git", "fetch"]
+gp = ["git", "push"]
 
 [snapshot]
 auto-update-stale = true
@@ -83,7 +87,7 @@ log = '''
 
 [revsets]
 # By default, show all my current stacks of work.
-log = 'stack(mine() | @) | trunk() | @'
+# log = 'stack(mine() | @) | trunk() | @'
 
 
 [revset-aliases]

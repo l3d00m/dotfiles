@@ -58,12 +58,13 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # Start Applications
-bindsym $mod+o exec kitty -e 'ranger'
+bindsym $mod+o exec kitty -T Ranger ranger
+bindsym $mod+m exec kitty -T Mail neomutt
 bindsym $mod+F2 exec nautilus
 # bindsym $mod+F3 exec nautilus
 bindsym $mod+Shift+p exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+p exec --no-startup-id picom -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restarted dunst'"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
@@ -188,11 +189,14 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open applications on specific workspaces
+assign [class="Signal"] $ws3
 assign [class="Spotify"] $ws3
 assign [class="Signal"] $ws3
+assign [title="Mail"] $ws3
 assign [class="discord"] $ws3
 for_window [class="Spotify"] move to workspace $ws3
 for_window [class="Thunderbird"] move to workspace $ws3
+for_window [class="Mail"] move to workspace $ws3
 for_window [class="Pavucontrol"] move to workspace $ws3
 for_window [class="Signal"] move to workspace $ws3
 for_window [class="Firefox"] move to workspace $ws1
@@ -251,6 +255,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+bindsym $mod+Shift+m exec autorandr --change
+
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
@@ -305,10 +311,15 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
+#exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
 
 
 # exec --no-startup-id signal-desktop
 # exec --no-startup-id spotify
+# exec --no-startup-id sleep 10; thunderbird
+# exec --no-startup-id sleep 5; goimapnotify
+# exec --no-startup-id sleep 20; mbsync -a; notmuch new
+# exec --no-startup-id sleep 3; kitty -T "Mail" neomutt
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 15; nextcloud --background
@@ -320,8 +331,6 @@ exec --no-startup-id sleep 10; kdeconnect-indicator
 exec --no-startup-id sleep 5; sunshine
 exec --no-startup-id sleep 3; msm_notifier
 
-# for redshift
-exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk &
 
 # screen lock and suspend
