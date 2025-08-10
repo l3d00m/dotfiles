@@ -51,10 +51,10 @@ bindsym XF86AudioMute exec amixer sset 'Master' toggle
 bindsym XF86AudioLowerVolume exec amixer sset 'Master' 3%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 3%+
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl -i kdeconnect play-pause
+bindsym XF86AudioPause exec playerctl -i kdeconnect pause
+bindsym XF86AudioNext exec playerctl -i kdeconnect next
+bindsym XF86AudioPrev exec playerctl -i kdeconnect previous
 
 # Start Applications
 bindsym $mod+o exec kitty -T Ranger ranger
