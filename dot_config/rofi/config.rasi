@@ -6,11 +6,9 @@
  * Configuration For Rofi Version: 1.7.3
  **/
 
-
-
 configuration {
 	/*---------- General setting ----------*/
-	modi: "run,drun,filebrowser,window";
+	modi: "run,drun,window";
 	case-sensitive: false;
 	cycle: true;
 	filter: "";
@@ -182,4 +180,3 @@ configuration {
 */
 }
 
-@theme "catppuccin-macchiato"

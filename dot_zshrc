@@ -45,6 +45,8 @@ source ~/.aliases
 setopt INC_APPEND_HISTORY_TIME
 
 export EDITOR=/usr/bin/nvim
+export PAGER="most"
+export TERMINAL="kitty"
 
 # PERL trash
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
