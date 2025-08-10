@@ -1,0 +1,43 @@
+[[keymaps]]
+command = "NextTrack"
+key_sequence = "g n"
+[[keymaps]]
+command = "PreviousTrack"
+key_sequence = "g p"
+[[keymaps]]
+command = "None"
+key_sequence = "q"
+
+[[keymaps]]
+command = "None"
+key_sequence = "q"
+
+
+[[keymaps]]
+command = "SelectPreviousOrScrollUp" # up
+key_sequence = "k"
+
+[[keymaps]]
+command = "SelectNextOrScrollDown" # down
+key_sequence = "j"
+
+[[keymaps]]
+command = "ChooseSelected" # enter context
+key_sequence = "l"
+
+[[keymaps]]
+command = "PreviousPage" # go back
+key_sequence = "h"
+
+[[keymaps]]
+command = "FocusPreviousWindow" # left (pane)
+key_sequence = "w h"
+
+[[keymaps]]
+command = "FocusNextWindow" # right (pane)
+key_sequence = "w l"
+
+# Move LyricsPage to a 'g l' shortcut instead of 'l'
+[[keymaps]]
+command = "LyricsPage"
+key_sequence = "g l"
