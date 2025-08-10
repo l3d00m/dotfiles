@@ -302,7 +302,7 @@ bindsym $mod+asciicircum exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id autorandr -l normal; sleep 1; ~/.config/polybar/launch.sh; nitrogen --restore; picom -b
+exec --no-startup-id AUTORANDR_NO_POST_RELOAD=true autorandr -l normal; sleep 1; nitrogen --restore; picom -b; sleep 2; ~/.config/polybar/launch.sh; 
 
 exec_always ~/.i3/per-workspace-layout.pl
 exec_always --no-startup-id fix_xcursor
