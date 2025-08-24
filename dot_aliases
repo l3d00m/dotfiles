@@ -6,6 +6,7 @@ alias lg='lazygit'
 alias jjw='viddy -t -n 1 --disable_auto_save jj --ignore-working-copy --color=always'
 alias zt='zathura'
 alias nm='neomutt'
+alias cma='chezmoi add'
 
 # EXA
 alias ls='eza'                                                        # ls
@@ -14,6 +15,12 @@ alias ll='eza -lbGF --git --icons=auto'                               # long lis
 alias llm='eza -lbGF --git --icons=auto --sort=modified'              # long list, modified date sort
 alias lt='eza --tree --level=2'                                        # tree
 alias la='eza -lbhHigUmuSa --icons=auto --time-style=long-iso --git --color-scale'  # all list
+
+cdn ()
+{
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
 
 pandoc_watch() {
   if [[ -z "$1" ]]; then
