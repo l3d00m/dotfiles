@@ -196,14 +196,13 @@ assign [title="Signal"] $ws3
 assign [class="Spotify"] $ws3
 assign [class="thunderbird"] $ws3
 assign [title="Mail"] $ws3
-assign [title="Spotify"] $ws3
+assign [title="Spotify TUI"] $ws3
 assign [class="discord"] $ws3
 assign [class="solanum"] $ws3
 for_window [class="Spotify"] move to workspace $ws3
-for_window [title="Signal"] move to workspace $ws3
 for_window [class="Signal"] move to workspace $ws3
 for_window [class="thunderbird"] move to workspace $ws3
-for_window [title="Spotify"] move to workspace $ws3
+for_window [title="Spotify TUI"] move to workspace $ws3
 for_window [class="Pavucontrol"] move to workspace $ws3
 for_window [class="Firefox"] move to workspace $ws1
 
@@ -305,30 +304,31 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id AUTORANDR_NO_POST_RELOAD=true autorandr --change; picom -b; nitrogen --restore; 
+exec --no-startup-id sleep 10; ~/.config/polybar/launch.sh
 
-exec_always --no-startup-id AUTORANDR_NO_POST_RELOAD=true autorandr --change; sleep 1; nitrogen --restore; picom -b; sleep 1; ~/.config/polybar/launch.sh; 
-
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id flashfocus
 exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
 #exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
 
+exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
+exec --no-startup-id sleep 10; goimapnotify
+exec --no-startup-id protonmail-bridge --no-window
 
-# exec --no-startup-id sleep 2; signal-desktop
-# exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
-exec --no-startup-id sleep 1; kitty -T "Spotify" spotify_player
 # exec --no-startup-id sleep 5; thunderbird
-# exec --no-startup-id sleep 10; goimapnotify
+# exec --no-startup-id sleep 1; signal-desktop
+# exec --no-startup-id sleep 1; kitty -T "Spotify TUI" spotify_player
+
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 15; nextcloud --background
 exec --no-startup-id sleep 10; vorta -d
-# exec --no-startup-id protonmail-bridge --no-window
-# exec --no-startup-id sleep 10; syncthingtray --wait
+exec --no-startup-id sleep 10; syncthing
 exec --no-startup-id sleep 5; playerctld daemon
 exec --no-startup-id sleep 2; blueman-applet
-# exec --no-startup-id greenclip daemon>/dev/null
 exec --no-startup-id sleep 10; kdeconnect-indicator
 exec --no-startup-id sleep 5; sunshine
 exec --no-startup-id sleep 3; msm_notifier
