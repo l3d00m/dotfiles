@@ -19,7 +19,7 @@ alias la='eza -lbhHigUmuSa --icons=auto --time-style=long-iso --git --color-scal
 cdn ()
 {
     mkdir -p -- "$1" &&
-       cd -P -- "$1"
+       cd "$1"
 }
 
 pandoc_watch() {
