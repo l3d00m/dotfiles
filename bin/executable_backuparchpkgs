@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+# Set backup directory (change as needed)
+BACKUP_DIR="$HOME/Documents/local-backups/manjaro-pc"
+mkdir -p "$BACKUP_DIR"
+
+# Official (native) explicitly installed packages — names only
+pacman -Qneq >"$BACKUP_DIR/pkglist-official.txt"
+
+# AUR (foreign) explicitly installed packages — names only
+pacman -Qmeq >"$BACKUP_DIR/pkglist-aur.txt"
+
+# Restore tips:
+#
+#    Official: sudo pacman -S --needed - < pkglist-official.txt
+#    AUR: yay -S --needed - < pkglist-aur.txt (or yay)

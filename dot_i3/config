@@ -57,6 +57,7 @@ bindsym XF86AudioNext exec playerctl -i kdeconnect next
 bindsym XF86AudioPrev exec playerctl -i kdeconnect previous
 
 bindsym $mod+XF86AudioPlay exec ~/.config/secrets/start_spotify_tv.sh
+bindsym $mod+Print exec ~/.config/secrets/toggle_lights.sh
 
 
 # Start Applications
@@ -325,8 +326,8 @@ exec --no-startup-id protonmail-bridge --no-window
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 15; nextcloud --background
-exec --no-startup-id sleep 10; vorta -d
-exec --no-startup-id sleep 10; syncthing
+exec --no-startup-id sleep 60; vorta -d
+exec --no-startup-id sleep 10; syncthing serve --no-browser
 exec --no-startup-id sleep 5; playerctld daemon
 exec --no-startup-id sleep 2; blueman-applet
 exec --no-startup-id sleep 10; kdeconnect-indicator

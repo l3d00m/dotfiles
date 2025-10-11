@@ -10,17 +10,48 @@ BookmarkPageNumber: %d
 
 rm -f "$bookmarks_file" "$out_file"
 
-declare -a files=(*.pdf)
+# Prompt for order
+echo "Choose PDF order:"
+echo "  1) Filename (A-Z)"
+echo "  2) Filename (Z-A)"
+echo "  3) Date modified (newest first)"
+echo "  4) Date modified (oldest first)"
+echo "  5) Custom order (enter filenames manually, separated by spaces)"
+read -rp "Selection [1-5]: " order_choice
+
+case "$order_choice" in
+1)
+  mapfile -t files < <(ls *.pdf | sort)
+  ;;
+2)
+  mapfile -t files < <(ls *.pdf | sort -r)
+  ;;
+3)
+  mapfile -t files < <(ls -t *.pdf)
+  ;;
+4)
+  mapfile -t files < <(ls -tr *.pdf)
+  ;;
+5)
+  echo "Enter PDF filenames separated by spaces (in desired order):"
+  read -ra files
+  ;;
+*)
+  echo "Invalid selection. Exiting."
+  exit 1
+  ;;
+esac
+
 page_counter=1
 
 # Generate bookmarks file.
 for f in "${files[@]}"; do
-    title="${f%.*}"
-    printf "$bookmarks_fmt" "$title" "$page_counter" >> "$bookmarks_file"
-    num_pages="$(pdftk "$f" dump_data | grep NumberOfPages | awk '{print $2}')"
-    page_counter=$((page_counter + num_pages))
+  title="${f%.*}"
+  printf "$bookmarks_fmt" "$title" "$page_counter" >>"$bookmarks_file"
+  num_pages="$(pdftk "$f" dump_data | grep NumberOfPages | awk '{print $2}')"
+  page_counter=$((page_counter + num_pages))
 done
 
 # Combine PDFs and embed the generated bookmarks file.
-pdftk "${files[@]}" cat output - | \
-    pdftk - update_info "$bookmarks_file" output "$out_file"
+pdftk "${files[@]}" cat output - |
+  pdftk - update_info "$bookmarks_file" output "$out_file"

@@ -18,3 +18,8 @@ Host storagebox
 Host iot
     HostName 192.168.111.50
     User pi
+
+Host ko
+    HostName 192.168.0.102
+    User root
+    Port 2222
