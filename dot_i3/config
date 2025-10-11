@@ -57,6 +57,7 @@ bindsym XF86AudioNext exec playerctl -i kdeconnect next
 bindsym XF86AudioPrev exec playerctl -i kdeconnect previous
 
 bindsym $mod+XF86AudioPlay exec ~/.config/secrets/start_spotify_tv.sh
+bindsym $mod+Print exec ~/.config/secrets/toggle_lights.sh
 
 # Start Applications
 bindsym $mod+o exec kitty -T Ranger ranger
@@ -310,7 +311,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id sleep 2; setxkbmap -layout us -variant altgr-intl -option compose:ralt
+exec_always --no-startup-id sleep 3; setxkbmap -layout us -variant altgr-intl -option compose:ralt
 #exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
 
 exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
@@ -324,8 +325,8 @@ exec --no-startup-id sleep 1; kitty -T "Spotify TUI" spotify_player
 exec --no-startup-id sleep 5; nm-applet
 exec --no-startup-id sleep 5; pamac-tray
 exec --no-startup-id sleep 5; nextcloud --background
-exec --no-startup-id sleep 10; vorta -d
-exec --no-startup-id sleep 10; syncthing
+exec --no-startup-id sleep 60; vorta -d
+exec --no-startup-id sleep 10; syncthing serve --no-browser
 exec --no-startup-id sleep 5; playerctld daemon
 exec --no-startup-id sleep 2; blueman-applet
 exec --no-startup-id sleep 10; kdeconnect-indicator
