@@ -3,7 +3,7 @@
 
 # The directory where everything lives in.
 # Possible values {any absolute posix path}
-working_dir_location: /home/thomas/Documents/uni/isisdl
+working_dir_location: /home/tommi/Documents/uni/isisdl
 
 # The name of the SQlite Database (located in `working_dir_location`) used for storing metadata about files + config.
 # Possible values {any posix path}
@@ -36,7 +36,7 @@ make_subdirs: true
 
 # Should external links be followed?
 # Possible values {"true", "false"}
-follow_links: true
+follow_links: false
 
 # Should the displayed name be absolute or just the name?
 # Possible values {"true", "false"}
