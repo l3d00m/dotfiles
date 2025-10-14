@@ -311,7 +311,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id sleep 3; setxkbmap -layout us -variant altgr-intl -option compose:ralt
+exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
 #exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
 
 exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
