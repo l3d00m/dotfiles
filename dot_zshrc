@@ -28,7 +28,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle "MichaelAquilina/zsh-you-should-use"
 antigen bundle lukechilds/zsh-nvm
-antigen bundle "rkh/zsh-jj"
 
 #antigen theme agnoster
 antigen theme romkatv/powerlevel10k

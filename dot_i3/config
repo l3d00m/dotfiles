@@ -59,7 +59,6 @@ bindsym XF86AudioPrev exec playerctl -i kdeconnect previous
 bindsym $mod+XF86AudioPlay exec ~/.config/secrets/start_spotify_tv.sh
 bindsym $mod+Print exec ~/.config/secrets/toggle_lights.sh
 
-
 # Start Applications
 bindsym $mod+o exec kitty -T Ranger ranger
 bindsym $mod+m exec kitty -T Mail neomutt
@@ -358,7 +357,7 @@ client.focused_inactive #939ab7  #939ab7 #181926 #a6da95   #1e2030
 client.unfocused        #939ab7  #1e2030 #cad3f5 #1e2030   #1e2030
 client.urgent 	      	#a6da95  #a6da95 #cad3f5 #8bd5ca   #B5E8E0
 client.placeholder      #181926  #181926 #cad3f5 #181926
-# client.background       $term_background
+client.background       $term_background
 
 
 #############################
