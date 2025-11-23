@@ -247,7 +247,7 @@ for_window [class="Nextcloud"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="NoiseTorch"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
-for_window [title="^zoom$" class="[zoom]*"] floating enable 
+# for_window [title="^zoom$" class="[zoom]*"] floating enable 
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -338,7 +338,7 @@ exec --no-startup-id sleep 5; isisdl
 exec --no-startup-id ~/.config/secrets/connect_bt.sh
 
 # screen lock and suspend
-exec --no-startup-id xautolock -time 5 -locker "blurlock -n" -notify 15 -notifier "notify-send -u critical -t 14000 'Locking display soon'" -corners --++ -detectsleep -killtime 10 -killer "systemctl suspend"
+exec --no-startup-id xautolock -time 5 -locker "blurlock -n" -notify 10 -notifier "notify-send -u critical -t 5000 'Locking display soon'" -corners --++ -detectsleep -killtime 10 -killer "systemctl suspend"
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
