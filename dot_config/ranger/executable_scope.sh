@@ -88,8 +88,7 @@ handle_extension() {
   odt | ods | odp | sxw)
     ## Preview as text conversion
     odt2txt "${FILE_PATH}" && exit 5
-    ## Preview as markdown conversion
-    pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+    pandoc -s -t plain -- "${FILE_PATH}" && exit 5
     exit 1
     ;;
 
@@ -107,7 +106,7 @@ handle_extension() {
     w3m -dump "${FILE_PATH}" && exit 5
     lynx -dump -- "${FILE_PATH}" && exit 5
     elinks -dump "${FILE_PATH}" && exit 5
-    pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+    pandoc -s -t plain -- "${FILE_PATH}" && exit 5
     ;;
 
   ## JSON
@@ -280,12 +279,11 @@ handle_mime() {
     exit 1
     ;;
 
-  ## DOCX, ePub, FB2 (using markdown)
+  ## DOCX, ePub, FB2 (using pandoc)
   ## You might want to remove "|epub" and/or "|fb2" below if you have
   ## uncommented other methods to preview those formats
   *wordprocessingml.document | */epub+zip | */x-fictionbook+xml)
-    ## Preview as markdown conversion
-    pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+    pandoc -s -t plain -- "${FILE_PATH}" && exit 5
     exit 1
     ;;
 

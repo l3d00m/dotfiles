@@ -67,6 +67,7 @@ bindsym $mod+F2 exec nautilus
 bindsym $mod+Shift+p exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+p exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restarted dunst'"
+bindsym $mod+Shift+n exec dunstctl history-pop
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
@@ -227,7 +228,7 @@ for_window [class="Nextcloud"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="NoiseTorch"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
-for_window [title="^zoom$" class="[zoom]*"] floating enable 
+# for_window [title="^zoom$" class="[zoom]*"] floating enable 
 
 # switch to workspace with urgent window automatically
 # for_window [urgent=latest] focus
@@ -291,8 +292,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id sleep 1; setxkbmap -layout us -variant altgr-intl -option compose:ralt -option caps:escape
-#exec_always --no-startup-id sleep 1; setxkbmap -layout de -option ctrl:nocaps
+exec_always --no-startup-id sleep 2; setxkbmap eu
 
 exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
 exec --no-startup-id sleep 10; goimapnotify
@@ -318,7 +318,7 @@ exec --no-startup-id sleep 5; isisdl
 exec --no-startup-id ~/.config/secrets/connect_bt.sh
 
 # screen lock and suspend
-exec --no-startup-id xautolock -time 5 -locker "blurlock -n" -notify 15 -notifier "notify-send -u critical -t 14000 'Locking display soon'" -corners --++ -detectsleep -killtime 10 -killer "systemctl suspend"
+exec --no-startup-id xautolock -time 5 -locker "blurlock -n" -notify 10 -notifier "notify-send -u critical -t 5000 'Locking display soon'" -corners --++ -detectsleep -killtime 10 -killer "systemctl suspend"
 
 
 # Color palette used for the terminal ( ~/.Xresources file )

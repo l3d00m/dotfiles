@@ -53,3 +53,5 @@
   autoSquash = true
   autoStash = true
   updateRefs = true
+[alias]
+	cloner = clone --recursive
