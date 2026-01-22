@@ -8,6 +8,7 @@ alias zt='zathura'
 alias nm='neomutt'
 alias cma='chezmoi add'
 alias gcl='git clone'
+alias glances='glances -t 1'
 
 # EXA
 alias ls='eza'                                                        # ls
