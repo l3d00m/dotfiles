@@ -68,7 +68,7 @@ bindsym $mod+Shift+p exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+p exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restarted dunst'"
 bindsym $mod+Shift+n exec dunstctl history-pop
-bindsym $mod+g exec kitty glances -t 1
+bindsym $mod+g exec kitty glances
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard
