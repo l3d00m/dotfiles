@@ -7,6 +7,7 @@ alias jjw='viddy -t -n 1 --disable_auto_save jj --ignore-working-copy --color=al
 alias zt='zathura'
 alias nm='neomutt'
 alias cma='chezmoi add'
+alias cmcd='chezmoi cd'
 alias gcl='git clone'
 
 # EXA
