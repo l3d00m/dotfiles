@@ -18,7 +18,7 @@ from datetime import datetime
 
 
 def get_current_time():
-    return datetime.now().strftime("%H:%M:%S")
+    return datetime.now().strftime("%H:%M")
 
 
 def run_timer(duration_min, label):
@@ -73,7 +73,6 @@ def confirm_continue_or_minutes(prompt):
     Prompt user:
     - Enter: continue with default duration (returns None)
     - int minutes: override next timer duration (returns int)
-    - EOF: returns False
     """
     while True:
         try:
@@ -90,8 +89,6 @@ def confirm_continue_or_minutes(prompt):
             return minutes
         except ValueError:
             print("Please enter an integer number of minutes, or press Enter.")
-        except EOFError:
-            return False
 
 
 def wait_to_start_break_with_reminders(default_break_minutes, break_type):
@@ -102,36 +99,27 @@ def wait_to_start_break_with_reminders(default_break_minutes, break_type):
     Returns:
       - None -> start break with default_break_minutes
       - int  -> override break minutes
-      - False -> user ended session (EOF / Ctrl+C)
     """
-    try:
-        while True:
-            send_notification(
-                "🍅 Break ready",
-                f"{break_type} available: {default_break_minutes} min. "
-                f"Go to terminal and press Enter (or type minutes) to start.",
-                "break",
-                "Start Break",
-            )
+    while True:
+        send_notification(
+            "Break ready",
+            f"{break_type} available: {default_break_minutes} min. ",
+            "break",
+            "Start Break",
+        )
 
-            # IMPORTANT: we must actually wait for user input here (instead of
-            # running a 1-min timer first). The 1-min reminders are handled by
-            # termdown's tick/notify feature: "-c 60" triggers a "tick" every 60s.
-            #
-            # We implement the waiting with input(), but also want reminders.
-            # Easiest without threads: do a 1-minute cycle *after* giving the user
-            # a chance to respond immediately.
-            override = confirm_continue_or_minutes(
-                f"[{get_current_time()}] Start {default_break_minutes} minute {break_type.lower()} now?"
-            )
-            if override is False:
-                return False
-            if override is None or isinstance(override, int):
-                return override
-
-            # (Unreachable, but kept for clarity)
-    except KeyboardInterrupt:
-        return False
+        # IMPORTANT: we must actually wait for user input here (instead of
+        # running a 1-min timer first). The 1-min reminders are handled by
+        # termdown's tick/notify feature: "-c 60" triggers a "tick" every 60s.
+        #
+        # We implement the waiting with input(), but also want reminders.
+        # Easiest without threads: do a 1-minute cycle *after* giving the user
+        # a chance to respond immediately.
+        override = confirm_continue_or_minutes(
+            f"[{get_current_time()}] Start {default_break_minutes} minute {break_type.lower()} now?"
+        )
+        if override is None or isinstance(override, int):
+            return override
 
 
 def main():
@@ -139,7 +127,7 @@ def main():
     print(
         f"""
     ╔═══════════════════════════════════════╗
-    ║       🍅 POMODORO TIMER 🍅           ║
+    ║           POMODORO TIMER              ║
     ║                                       ║
     ║  Work:        25 minutes              ║
     ║  Short break: 5 minutes               ║
@@ -165,7 +153,7 @@ def main():
                 break
 
             send_notification(
-                "🍅 Pomodoro Complete!",
+                "Pomodoro Complete!",
                 f"Work session #{pomodoro_count} finished. Time for a break!",
                 "break",
                 "Start Break",
@@ -183,10 +171,6 @@ def main():
             override_break = wait_to_start_break_with_reminders(
                 break_duration, break_type
             )
-            if override_break is False:
-                print("\nPomodoro session ended.")
-                print(f"Completed pomodoros: {pomodoro_count}")
-                break
             if isinstance(override_break, int):
                 break_duration = override_break
 
@@ -195,7 +179,7 @@ def main():
                 break
 
             send_notification(
-                "⏰ Break Over!",
+                "Break Over!",
                 f"{break_type} finished. Ready for the next pomodoro?",
                 "work",
                 "Start Work",
@@ -205,10 +189,6 @@ def main():
             override_work = confirm_continue_or_minutes(
                 f"[{get_current_time()}] Start next pomodoro (default 25 min)?"
             )
-            if override_work is False:
-                print("\nPomodoro session ended.")
-                print(f"Completed pomodoros: {pomodoro_count}")
-                break
             if isinstance(override_work, int):
                 next_work_duration = override_work
 
@@ -216,7 +196,6 @@ def main():
                 print("\nCompleted 4 pomodoros! Starting a new cycle.\n")
 
     except KeyboardInterrupt:
-        print("\n\nPomodoro timer stopped.")
         print(f"Completed pomodoros: {pomodoro_count}")
         clear_notification()
         sys.exit(0)

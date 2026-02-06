@@ -2,5 +2,6 @@ set selection-clipboard clipboard
 set statusbar-home-tilde true
 set window-title-basename true
 
+map <C-e> follow
 
 include catppuccin-macchiato

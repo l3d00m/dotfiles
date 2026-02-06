@@ -57,6 +57,8 @@ bindsym XF86AudioNext exec playerctl -i kdeconnect next
 bindsym XF86AudioPrev exec playerctl -i kdeconnect previous
 
 bindsym $mod+XF86AudioPlay exec ~/.config/secrets/start_spotify_tv.sh
+bindsym $mod+XF86AudioLowerVolume exec ~/.config/secrets/tv_leiser.sh
+bindsym $mod+XF86AudioRaiseVolume exec ~/.config/secrets/tv_lauter.sh
 bindsym $mod+Print exec ~/.config/secrets/toggle_lights.sh
 
 # Start Applications
@@ -293,7 +295,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id sleep 2; setxkbmap eu
+exec_always --no-startup-id sleep 2; setxkbmap eu -option caps:escape 
 
 exec --no-startup-id sleep 1; kitty -T "Mail" neomutt
 exec --no-startup-id sleep 60; goimapnotify
